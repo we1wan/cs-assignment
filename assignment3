@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <title>rahti assignment</title>
+  <style>
+    body {font-family: "Times New Roman", Times, serif; margin: 40px; line-height: 1.6; max-width: 800px; }
+    h1 { color: #a17040; }
+    .question {background: #fcf2e8; padding: 15px; border-radius: 6px; margin-bottom: 20px; }
+    .diary {background: #fff9f2; padding: 15px; border-radius: 6px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>cloud services assignment 3</h1>
+  <h2>rahti container deployment</h2>
+  <p>by <strong>vanesa vigašová :)</strong></p>
+
+  <div class = "question">
+    <h3>Q1 ; explain what is serverless architecture</h3>
+    <p>serverless architecture (or FaaS) is a execution model where developers build and run apps without having to manage and take care about physical or virtual servers, because cloud provider usually automatically takes care of all those things.</p>
+    <p>the code is ran only in response to triggers (like http api request or file upload), it scales automatically depending on the traffic, and you pay only for what you use.</p>
+    <p><i>example;</i> image processing pipeline where you upload a photo to a cloud storage which triggers the serverless function that resizes the image and shuts down automatically after you're done.</p>
+  </div>
+
+  <div class = "question">
+    <h3>Q2 ; describe what is kubernetes and their alternatives</h3>
+    <p>kubernetes is an open source container platform originally made by google, that automates deployment, scaling, networking, (and other things) of containerised applications across multiple host machines(?). it automatically restarts failed containers and adjusts running instances based on usage, so it's also highly avaliable.</p>
+    <p>popular alternatives are dockerswarm, csc rahti, and hashicorp nomad(?)</p>
+  </div>
+
+  <div class = "question">
+    <h3>Q3 ; possible information security risks when using third party containers</h3>
+    <p>vunerabilities in base images >> public images often have outdated operating system packages and libraries that attackers can exploit to gain access to the container</p>
+    <p>malicious or tampered images >> attackers can upload evil images containing malware, cryptominers or backdoors in form of typosquatting to trick users</p>
+    <p>exposed secrets >> some developers hardcode api keys, passwords, or certificates into public container layers, which makes them accessible to anyone pulling the image</p>
+  </div>
+
+  <div class = "question">
+    <h3>Q4 ; what virtualisation platform would i use and why</h3>
+    <p>if i needed to run virtualised windows os on my laptop, i would probably decide based on the primary os of the host laptop</p>
+    <p>if it uses windows host i would go for microsoft hyper-v >> built directly into windows with native system integration, good performance and efficient cpu and ram resource management + no need for extra software installation</p>
+    <p>if it uses linux i would go for kvm with qemu >> kvm is directly in linux kernel, combined with virt-manager it's close to native cpu and gpu speed</p>
+    <p>if it uses macos i would go for oracle virtualbox >> virtualbox is free, open source and runs the same on windows, linux, and macos. it's pretty easy to use and it makes setting everything up and sharing files between host and windows quick and simple</p>
+  </div>
+
+  <div class = "diary">
+    <h3>learning diary</h3>
+    <p>for this assignment, i deployed a containerised web page onto csc rahti as a paas provider. i did this by connecting my github with rahtis s2i which automatically created the site.</p>
+    <img src="https://github.com/we1wan/cs-assignment2/blob/main/rahti.png?raw=true" alt="rahti screenshot" style="max-width: 100%; height: auto;">
+    <p>my github repository link and the site link are directly in moodle :)</p>
+  </div>
+</body>
+</html>
