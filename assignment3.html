@@ -20,31 +20,35 @@
   </nav>
   
   <div class = "question">
-    <h3>Q1 ; explain what is serverless architecture</h3>
-    <p>serverless architecture (or FaaS) is a execution model where developers build and run apps without having to manage and take care about physical or virtual servers, because cloud provider usually automatically takes care of all those things.</p>
-    <p>the code is ran only in response to triggers (like http api request or file upload), it scales automatically depending on the traffic, and you pay only for what you use.</p>
-    <p><i>example;</i> image processing pipeline where you upload a photo to a cloud storage which triggers the serverless function that resizes the image and shuts down automatically after you're done.</p>
+    <h3>Q1 ; describe reasons why most companies use cloud based email and calendar services</h3>
+    <p>before, companies were hosting and managing their own email servers on physical hardwares from server rooms. nowadays almost everyone uses cloud services like google workspace or microsoft 365 because maintaining local servers is more risky and expensive.</p>
+    <p>main reasons in my opinion would be that they dont have to purchase, maintain, or upgrade physical servers (which is also expensive), because cloud email is managed entirely by the provider removing the need for hardware maintenance or manual server updates.</p>
+    <p>another reason would be that in case of power outage, internet failure or other 'disaster', local servers crash completely. cloud services stay up because theyre distributed between multiple data centers.</p>
+    <p><i>example;</i> if a company relies on a email server, and the server room experiences a power outage or ransomware attack, all of the internal and client communications stop until the issue is fixed. with cloud email service, employees can simply use their personal devices to continue the communications without missing anything important.</p>
   </div>
 
   <div class = "question">
-    <h3>Q2 ; describe what is kubernetes and their alternatives</h3>
-    <p>kubernetes is an open source container platform originally made by google, that automates deployment, scaling, networking, (and other things) of containerised applications across multiple host machines(?). it automatically restarts failed containers and adjusts running instances based on usage, so it's also highly avaliable.</p>
-    <p>popular alternatives are dockerswarm, csc rahti, and hashicorp nomad(?)</p>
+    <h3>Q2 ; 2 amazon data leaks and s3 bucket search engines</h3>
+    <p>the most common causes of massive data breaches are usually misconfigured cloud storage buckets. because amazons s3 buckets are private by default, almost every leak has usually happened because admin manually misconfigured bucket permissions to allow public access or applied very loose acl (access control list)</p>
+    <p>#1 accenture data leak in 2017 | accenture left four aws s3 storage buckets completely public on the internet without any passwords or authentication needed. what happened was that the engineers configured the buckets to be publicly downloadable. the leak exposed around 140gb of highly sensitive data including api keys, identity credentials, and more. anyone who found the bucket url could download the master access keys to accentures internal cloud infrastructure</p>
+    <p>#2 us military intelligence leak in 2017 | defence contractor booz allen hamilton left unencrypted s3 bucket containing top secret us military national geospatial-intelligence agency credentials exposed to the public. the administrator set the buckets permissions to allow public read access without requiring aws login. bucket had over 60,000 files inside, including ssh keys, raw credentials, and encrypted passwords belonging to the us military intelligence personnel.</p>
+    <p>some bucket search engines and reconnaissance tools are usually used to scan the web and brute force predict the s3 bucket names, because the urls can get pretty predictable. most common are grayhatwarfare, slurp, awsbucketdump, and bucket finder</p>
   </div>
 
   <div class = "question">
-    <h3>Q3 ; possible information security risks when using third party containers</h3>
-    <p>vunerabilities in base images >> public images often have outdated operating system packages and libraries that attackers can exploit to gain access to the container</p>
-    <p>malicious or tampered images >> attackers can upload evil images containing malware, cryptominers or backdoors in form of typosquatting to trick users</p>
-    <p>exposed secrets >> some developers hardcode api keys, passwords, or certificates into public container layers, which makes them accessible to anyone pulling the image</p>
+    <h3>Q3 ; my thoughts about when to maintain my own server and when to use saas/paas/iaas</h3>
+    <p>i would maintain my own server if i were to handle some very sensitive data, like government, military, or healthcare data, where local regulations prohibit cloud hosting outside physical borders or mandate direct control over physicial hardware. another reason could be if i were to run specialisied custom hardware devices that cant be virtualised or run in the cloud environments.</p>
+    <p>iaas would be the best if i needed custom server configs, specific os dependencies, or full root access to install custom software without the hassle of managing my own physical server hardware.</p>
+    <p>paas would be the best if i wanted to focus primarily on writing application code and deploying quickly without spending time configuring web servers, firewalls, or linux updates.</p>
+    <p>saas would be the best if a standard application already solves my business problem completely.</p>
+    <p>the best hierarchy would be saas > paas > iaas > self hosted!</p>
   </div>
 
   <div class = "question">
-    <h3>Q4 ; what virtualisation platform would i use and why</h3>
-    <p>if i needed to run virtualised windows os on my laptop, i would probably decide based on the primary os of the host laptop</p>
-    <p>if it uses windows host i would go for microsoft hyper-v >> built directly into windows with native system integration, good performance and efficient cpu and ram resource management + no need for extra software installation</p>
-    <p>if it uses linux i would go for kvm with qemu >> kvm is directly in linux kernel, combined with virt-manager it's close to native cpu and gpu speed</p>
-    <p>if it uses macos i would go for oracle virtualbox >> virtualbox is free, open source and runs the same on windows, linux, and macos. it's pretty easy to use and it makes setting everything up and sharing files between host and windows quick and simple</p>
+    <h3>Q4 ; describe why iot devices use googles 8.8.8.8 or other public dns resolvers</h3>
+    <p>many of the smart devices ignore local network settings and use hardcoded dns servers like googles 8.8.8.8 or cloudflares 1.1.1.1 for a few reasons. the main one would be that local isp dns servers often go down, lag, or time out. if a smart tv relied on not always working isp server, it would mark itself offline and the customers would complain. public dns servers run on massive global networks and are almost never down.</p>
+    <p>another reason would be that smart tvs send a lot of telemetry, usage stats, and ads. manufacturers hardcode public dns so that tracking or streaming endpoints cant be that easily blocked by local tool networks like pihole. home routers also often have very aggressive firewalls or parental control filters which block specific domains. public dns ensires that the devidecan update its firmware and work without getting blocked by the local router rules.</p>
+    <p>downsides however, are that every website you open gets sent directly to google/cloudflare, so you kinda lose privacy. public dns also doesnt always pass local location data to cdn, which can sometimes route video streams to a farther slower server.</p>
   </div>
 
   <div class = "diary">
