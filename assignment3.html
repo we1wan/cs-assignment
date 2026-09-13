@@ -47,7 +47,7 @@
   <div class = "question">
     <h3>Q4 ; describe why iot devices use googles 8.8.8.8 or other public dns resolvers</h3>
     <p>many of the smart devices ignore local network settings and use hardcoded dns servers like googles 8.8.8.8 or cloudflares 1.1.1.1 for a few reasons. the main one would be that local isp dns servers often go down, lag, or time out. if a smart tv relied on not always working isp server, it would mark itself offline and the customers would complain. public dns servers run on massive global networks and are almost never down.</p>
-    <p>another reason would be that smart tvs send a lot of telemetry, usage stats, and ads. manufacturers hardcode public dns so that tracking or streaming endpoints cant be that easily blocked by local tool networks like pihole. home routers also often have very aggressive firewalls or parental control filters which block specific domains. public dns ensires that the devidecan update its firmware and work without getting blocked by the local router rules.</p>
+    <p>another reason would be that smart tvs send a lot of telemetry, usage stats, and ads. manufacturers hardcode public dns so that tracking or streaming endpoints cant be that easily blocked by local tool networks like pihole. home routers also often have very aggressive firewalls or parental control filters which block specific domains. public dns ensures that the device can update its firmware and work without getting blocked by the local router rules.</p>
     <p>downsides however, are that every website you open gets sent directly to google/cloudflare, so you kinda lose privacy. public dns also doesnt always pass local location data to cdn, which can sometimes route video streams to a farther slower server.</p>
   </div>
 
