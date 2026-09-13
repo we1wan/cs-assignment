@@ -2,7 +2,7 @@
 <html lang = "en">
 <head>
   <meta charset = "UTF-8">
-  <title>rahti assignment</title>
+  <title>assignment 3</title>
   <style>
     body {font-family: "Times New Roman", Times, serif; margin: 40px; line-height: 1.6; max-width: 800px; }
     h1 { color: #a17040; }
@@ -12,7 +12,7 @@
 </head>
 <body>
   <h1>cloud services assignment 3</h1>
-  <h2>rahti container deployment</h2>
+  <h2>paas deployment with decoupled media storage & cloud concepts</h2>
   <p>by <strong>vanesa vigašová :)</strong></p>
 
   <nav style="margin-bottom: 25px;">
@@ -53,9 +53,13 @@
 
   <div class = "diary">
     <h3>learning diary</h3>
-    <p>for this assignment, i deployed a containerised web page onto csc rahti as a paas provider. i did this by connecting my github with rahtis s2i which automatically created the site.</p>
-    <img src="https://github.com/we1wan/cs-assignment2/blob/main/rahti.png?raw=true" alt="rahti screenshot" style="max-width: 100%; height: auto;">
-    <p>my github repository link and the site link are directly in moodle :)</p>
+    <p>github repository link is in moodle :)</p>
+    <p>for this assignment, i answered the required questions and i deployed my main web application files directly to csc rahti.</p>
+    <p>to fulfill the requirement for a decoupled paas + mass storage setup, i separated the HTML execution layer from the static media storage. rather than grouping image assets inside the container image build, the screenshot image on this page is fetched dynamically over http from an external public cloud media endpoint.</p>
+    <p>i was having some troubles with cloud permissions and authentication issues. while setting up the object storage permissions, i kept encountering session logouts and 403 forbidden access restrictions on the csc portal. because of this, i was forced to link my media assets through an external public raw media cdn link, alowing rahti to load all images without container bloat.</p>
+    <img src="https://github.com/we1wan/cs-assignment/blob/main/a3-rahti.png?raw=true" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #ccc; margin: 10px 0;">
+    <img src="https://github.com/we1wan/cs-assignment/blob/main/a3-github.png?raw=true" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #ccc; margin: 10px 0;">
+    <img src="https://github.com/we1wan/cs-assignment/blob/main/a3-code.png?raw=true" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #ccc; margin: 10px 0;">
   </div>
 </body>
 </html>
